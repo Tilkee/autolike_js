@@ -22,43 +22,19 @@ console.log(argv.email)
 console.log(argv.pass)
 console.log(argv.url)
 
-// nick.newTab().then(async (tab) => {
-//     try {
-//         if(argv.token) {
-//             // Connexion à linkedin
-//             linkedin.li_at = argv.token;
-//             await linkedin.linkedinConnect(tab, nick);
-//         } else {
-//             await linkedin.getNewToken(tab, nick, {email: argv.email, pass: argv.pass})
-//         }
-
-//         // Liker un post
-//         await linkedin.likePost(tab, "https://www.linkedin.com/feed/update/urn:li:activity:6311470564892643328");
-
-//     } catch(err) {
-//       console.log('=======Error script=========')
-//       console.log(err);
-//     }
-// })
-// .then(() => {
-//   nick.exit(0)
-// })
-// .catch((err) => {
-//   console.log("An error occured:", err)
-//   nick.exit(1)
-// })
-
 nick.newTab().then(async (tab) => {
     try {
         if(argv.token) {
             // Connexion à linkedin
-            twitter.token = argv.token;
-            //console.log(twitter);
-            await twitter.TwitterConnect(tab, nick);
+            linkedin.li_at = argv.token;
+            await linkedin.linkedinConnect(tab, nick);
         } else {
-            await twitter.getNewToken(tab, nick, {email: argv.email, pass: argv.pass})
-            await twitter.likePost(tab, "https://twitter.com/emploievenement/status/905729044729221120");
+            await linkedin.getNewToken(tab, nick, {email: argv.email, pass: argv.pass})
         }
+
+        // Liker un post
+        await linkedin.likePost(tab, "https://www.linkedin.com/feed/update/urn:li:activity:6311470564892643328");
+
     } catch(err) {
       console.log('=======Error script=========')
       console.log(err);
@@ -71,4 +47,28 @@ nick.newTab().then(async (tab) => {
   console.log("An error occured:", err)
   nick.exit(1)
 })
+
+// nick.newTab().then(async (tab) => {
+//     try {
+//         if(argv.token) {
+//             // Connexion à linkedin
+//             twitter.token = argv.token;
+//             //console.log(twitter);
+//             await twitter.TwitterConnect(tab, nick);
+//         } else {
+//             await twitter.getNewToken(tab, nick, {email: argv.email, pass: argv.pass})
+//             await twitter.likePost(tab, "https://twitter.com/emploievenement/status/905729044729221120");
+//         }
+//     } catch(err) {
+//       console.log('=======Error script=========')
+//       console.log(err);
+//     }
+// })
+// .then(() => {
+//   nick.exit(0)
+// })
+// .catch((err) => {
+//   console.log("An error occured:", err)
+//   nick.exit(1)
+// })
 
