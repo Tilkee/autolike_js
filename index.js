@@ -33,7 +33,7 @@ nick.newTab().then(async (tab) => {
         }
 
         // Liker un post
-        await linkedin.likePost(tab, "https://www.linkedin.com/feed/update/urn:li:activity:6311470564892643328");
+        await linkedin.likePost(tab, argv.url);
 
     } catch(err) {
       console.log('=======Error script=========')
